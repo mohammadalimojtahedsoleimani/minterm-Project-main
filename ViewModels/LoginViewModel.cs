@@ -5,8 +5,8 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
-
+using Firebase.Auth;
+using Newtonsoft.Json;
 namespace minterm_Project_main.ViewModels
 
 {
@@ -49,20 +49,20 @@ namespace minterm_Project_main.ViewModels
 
         private async void LoginBtnTappedAsync(object obj)
         {
-            // var authProvider = new FirebaseAuthProvider(new FirebaseConfig(webApiKey));
-            // try
-            // {
-            //     var auth = await authProvider.SignInWithEmailAndPasswordAsync(UserName, UserPassword);
-            //     var content = await auth.GetFreshAuthAsync();
-            //     var serializedContent = JsonConvert.SerializeObject(content);
-            //     Preferences.Set("FreshFirebaseToken", serializedContent);
-            //     await this._navigation.PushAsync(new Dashboard());
-            // }
-            // catch (Exception ex)
-            // {
-            //     await App.Current.MainPage.DisplayAlert("Alert", ex.Message, "OK");
-            //     throw;
-            // }
+            var authProvider = new FirebaseAuthProvider(new FirebaseConfig(webApiKey));
+            try
+            {
+                var auth = await authProvider.SignInWithEmailAndPasswordAsync(UserName, UserPassword);
+                var content = await auth.GetFreshAuthAsync();
+                var serializedContent = JsonConvert.SerializeObject(content);
+                Preferences.Set("FreshFirebaseToken", serializedContent);
+                await this._navigation.PushAsync(new Dashboard());
+            }
+            catch (Exception ex)
+            {
+                await App.Current.MainPage.DisplayAlert("Alert", ex.Message, "OK");
+                throw;
+            }
 
             
         }
