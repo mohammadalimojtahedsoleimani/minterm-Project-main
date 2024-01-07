@@ -14,7 +14,8 @@ namespace minterm_Project_main
         private void GetProfileInfo()
         {
             var userInfo = JsonConvert.DeserializeObject<Firebase.Auth.FirebaseAuth>(Preferences.Get("FreshFirebaseToken", ""));
-            UserEmail.Text = userInfo.User.Email;
+            UserEmail.Text = String.Format("Hello, {0}!", userInfo.User.Email);
+
         }
     }
 }

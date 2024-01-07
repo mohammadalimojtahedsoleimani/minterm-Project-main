@@ -6,10 +6,18 @@
     NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
         <StackLayout>
+            <Image
+                Margin="0,35"
+                Aspect="AspectFit"
+                HeightRequest="100"
+                Source="dotnet_bot.svg"
+                    
+                WidthRequest="80" />
             <Label
                 x:Name="UserEmail"
                 HorizontalOptions="CenterAndExpand"
                 VerticalOptions="CenterAndExpand" />
+            
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

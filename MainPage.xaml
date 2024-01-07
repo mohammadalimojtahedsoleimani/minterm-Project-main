@@ -2,11 +2,10 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="minterm_Project_main.MainPage">
-
+    
     <ContentPage.Content>
-        
-          <Grid
-            BackgroundColor="#FFFFFF"
+        <Grid
+            BackgroundColor="#afeeee "
             HorizontalOptions="Fill"
             VerticalOptions="Fill">
             <Grid.RowDefinitions>
@@ -15,9 +14,9 @@
             </Grid.RowDefinitions>
             <StackLayout Grid.Row="0" HorizontalOptions="Center">
                 <Image
-                    Margin="0,35"
+                    Margin="0,-15,0,0"
                     Aspect="AspectFit"
-                    HeightRequest="100"
+                    HeightRequest="150"
                     Source="kharazmi.png"
                     
                     WidthRequest="80" />
@@ -117,6 +116,7 @@
             </Frame>
         </Grid>
     </ContentPage.Content>
-
+   
 
 </ContentPage>
+
