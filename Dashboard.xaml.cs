@@ -1,4 +1,4 @@
-﻿// using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 
 namespace minterm_Project_main
 {
@@ -8,13 +8,13 @@ namespace minterm_Project_main
         public Dashboard()
         {
             InitializeComponent();
-            // GetProfileInfo();
+            GetProfileInfo();
         }
 
-        // private void GetProfileInfo()
-        // {
-        //     var userInfo = JsonConvert.DeserializeObject<Firebase.Auth.FirebaseAuth>(Preferences.Get("FreshFirebaseToken", ""));
-        //     UserEmail.Text = userInfo.User.Email;
-        // }
+        private void GetProfileInfo()
+        {
+            var userInfo = JsonConvert.DeserializeObject<Firebase.Auth.FirebaseAuth>(Preferences.Get("FreshFirebaseToken", ""));
+            UserEmail.Text = userInfo.User.Email;
+        }
     }
 }
