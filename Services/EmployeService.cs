@@ -15,7 +15,7 @@ public class EmployeService
     
     
     
-    public async Task<List<Employe>> GetEmails()
+    public async Task<List<Employe>> GetEmployes()
     {
         if (employesList?. Count > 0)
         {

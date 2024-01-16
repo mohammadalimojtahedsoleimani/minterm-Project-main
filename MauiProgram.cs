@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
-
+using minterm_Project_main.Services;
+using minterm_Project_main.ViewModels;
 namespace minterm_Project_main;
 
 public static class MauiProgram
@@ -16,7 +17,8 @@ public static class MauiProgram
             });
 
         builder.Services.AddSingleton<MainPage>();
-        
+        builder.Services.AddSingleton<EmployeService>();
+        builder.Services.AddSingleton<DashboardViewModel>();
         return builder.Build();
     }
 }
