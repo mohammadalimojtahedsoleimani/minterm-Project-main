@@ -8,14 +8,9 @@ namespace minterm_Project_main
         public Dashboard()
         {
             InitializeComponent();
-            GetProfileInfo();
+            
         }
 
-        private void GetProfileInfo()
-        {
-            var userInfo = JsonConvert.DeserializeObject<Firebase.Auth.FirebaseAuth>(Preferences.Get("FreshFirebaseToken", ""));
-            UserEmail.Text = String.Format("Hello, {0}!", userInfo.User.Email);
-
-        }
+     
     }
 }

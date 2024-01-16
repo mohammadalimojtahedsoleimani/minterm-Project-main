@@ -4,29 +4,49 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:model="clr-namespace:minterm_Project_main.Modal"
+    xmlns:viewmodel = "clr-namespace:minterm_Project_main.ViewModels"
+    x:DataType="viewmodel:DashboardViewModel"
+    Title="{Binding Title}"
     NavigationPage.HasNavigationBar="False">
-<StackLayout>
-    <Label
-        x:Name="UserEmail"
-        HorizontalOptions="CenterAndExpand"
-        VerticalOptions="CenterAndExpand" />
-    <CollectionView>
-        <CollectionView.ItemsSource>
-            <x:Array Type="x:Type modal:Employe">
-        
-        
-        
-            </x:Array>
+<Grid ColumnDefinitions="*,*" ColumnSpacing="5" RowDefinitions="*,Auto" RowSpacing="0">
     
-        </CollectionView.ItemsSource>
+    <CollectionView Grid.ColumnSpan="2" ItemsSource="{Binding Employes}" SelectionMode="None">
+      
+    
+       
         <CollectionView.ItemTemplate>
             <DataTemplate x:DataType="model:Employe">
-                <HorizontalStackLayout>
-                        <Label Text="{Binding lastName}"/>
-                </HorizontalStackLayout>
+               <Grid Padding="10" >
+                   <Frame HeightRequest="125" Padding="0" Style="{StaticResource CardView}">
+                       <Grid Padding="0"
+                             ColumnDefinitions="125, *">
+                       <Image Aspect="AspectFill"
+                              Source="{Binding imageUrl}"
+                              WidthRequest="125"
+                              HeightRequest="125"/>
+                       <VerticalStackLayout Grid.ColumnSpan="1" Padding="10" VerticalOptions="Center">
+                           <HorizontalStackLayout> 
+                               <Label Text="{Binding firstName}"
+                                      Style="{StaticResource LargeLabel}"/>
+                               <Label Text="{Binding lastName}"
+                                      Style="{StaticResource LargeLabel}"/> 
+                           </HorizontalStackLayout>
+                           <Label Text="{Binding email}" Style="{StaticResource MediumLabel}"/>
+                       </VerticalStackLayout>
+                       </Grid>
+                   </Frame>
+                   
+               </Grid>
             
             </DataTemplate>
         </CollectionView.ItemTemplate>
     </CollectionView>
-</StackLayout>
+    <ActivityIndicator IsVisible="{Binding IsBusy}"
+                       IsRunning="{Binding IsBusy}" 
+                       HorizontalOptions="Fill"
+                       VerticalOptions="Center"
+                       Grid.RowSpan="2"
+                       Grid.ColumnSpan="2"
+                       />
+</Grid>
 </ContentPage>

@@ -5,11 +5,12 @@ namespace minterm_Project_main;
 public partial class MainPage : ContentPage
 {
 
-    public MainPage()
+    public MainPage(DashboardViewModel viewModel)
     {
         InitializeComponent();
         BindingContext = new LoginViewModel(Navigation);
-        
+        BindingContext = viewModel;
+
     }
 
     
